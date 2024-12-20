@@ -1,12 +1,29 @@
 import React from 'react';
-import { SidebarProvider, Sidebar, SidebarContent, SidebarHeader, SidebarFooter, SidebarMenu, SidebarMenuItem, SidebarMenuButton } from './components/ui/sidebar';
+import { SidebarProvider, Sidebar, SidebarContent, SidebarHeader, SidebarFooter, SidebarMenu, SidebarMenuItem, SidebarMenuButton, SidebarGroup} from './components/ui/sidebar';
+import { TiHome } from "react-icons/ti";
+import { CgProfile } from "react-icons/cg";
+import { FaCar } from "react-icons/fa";
+import {
+  DropdownMenu,
+  DropdownMenuContent,
+  DropdownMenuItem,
+  DropdownMenuLabel,
+  DropdownMenuSeparator,
+  DropdownMenuTrigger,
+} from "@/components/ui/dropdown-menu"
+import profileImage from './assets/1572807961840.jpg';
+
+
 
 function App() {
   return (
     <SidebarProvider>
       <Sidebar>
         <SidebarHeader>
-          <h1>My Sidebar</h1>
+          <h1 className='flex items-center m-1 p-3'>
+            <FaCar className='mr-2' size={30} />
+            <p className='font-semibold'>Oui App</p>
+          </h1>
         </SidebarHeader>
         <SidebarContent>
           <SidebarMenu>
@@ -17,9 +34,18 @@ function App() {
               <SidebarMenuButton>Item 2</SidebarMenuButton>
             </SidebarMenuItem>
           </SidebarMenu>
-        </SidebarContent>
+          </SidebarContent>
         <SidebarFooter>
-          <p>Footer Content</p>
+        <DropdownMenu>
+   
+          <div className='flex flex-col'>
+            <div className="m-2 flex items-center">
+              <img className='w-14 rounded-xl' src={profileImage}/>
+              <p className='p-2'>Mohamed Amine Boughnimi</p>
+            </div>
+          </div>
+          </DropdownMenu>
+
         </SidebarFooter>
       </Sidebar>
       <div className="App">
